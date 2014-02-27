@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) NSArray *plist;
+@property (strong, nonatomic) NSMutableArray *photos;
 
 @end
 
@@ -34,14 +35,29 @@
     return _plist;
 }
 
+- (NSMutableArray *)photos
+{
+    if (!_photos)
+    {
+        _photos = [NSMutableArray new];
+    }
+    
+    return _photos;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     [self.plist enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
     {
-        Photo *photo = [[Photo alloc] initWithName:[NSString stringWithFormat:@"FOTO %d", idx + 1] summary:nil url:obj andIDNumber:[NSNumber numberWithUnsignedInteger:idx]];
-        [photo imageFromServer];
+        Photo *photo = [[Photo alloc] initWithName:[NSString stringWithFormat:@"FOTO %d", idx + 1] summary:nil url:[NSURL URLWithString:obj] andIDNumber:[NSNumber numberWithUnsignedInteger:idx]];
+        UIImage *image = [photo imageFromServer];
+        
+        if (image)
+        {
+            [self.photos addObject:image];
+        }
     }];
     
 }

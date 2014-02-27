@@ -10,11 +10,29 @@
 
 @implementation Photo
 
+- (instancetype)initWithName:(NSString *)name summary:(NSString *)summary url:(NSURL *)url andIDNumber:(NSNumber *)idNumber
+{
+    self = [super init];
+    
+    if (self)
+    {
+        self.name = name;
+        self.summary = summary;
+        self.url = url;
+        self.idNumber = idNumber;
+    }
+    
+    return self;
+}
+
+
 - (UIImage *)imageFromServer
 {
+    NSData *data = [NSData dataWithContentsOfURL:self.url];
     
+    UIImage *image = [UIImage imageWithData:data];
     
-    return nil;
+    return image;
 }
 
 @end
