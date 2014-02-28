@@ -28,9 +28,15 @@
 
 - (UIImage *)imageFromServer
 {
-    NSData *data = [NSData dataWithContentsOfURL:self.url];
+    NSLog(@"Download started");
     
-    UIImage *image = [UIImage imageWithData:data];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:self.url];
+    
+    NSLog(@"Data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    
+    UIImage *image = [[UIImage alloc] initWithData:data];
+    
+    NSLog(@"Image: %@", image);
     
     return image;
 }

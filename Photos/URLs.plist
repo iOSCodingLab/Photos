@@ -2,13 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>http://www.flickr.com/photos/floridamemory/12633853835/</string>
-	<string>http://www.flickr.com/photos/66759404@N08/12648134005/</string>
-	<string>http://www.flickr.com/photos/allanmaciver/12640328794/</string>
-	<string>http://www.flickr.com/photos/duram2010/12649841103/</string>
-	<string>http://www.flickr.com/photos/simpleten/12647311743/</string>
-	<string>http://www.flickr.com/photos/okiebill/12646460863/</string>
-	<string>http://www.flickr.com/photos/67654596@N04/12644874903/</string>
-	<string>http://www.flickr.com/photos/24693457@N05/12644028474/</string>
+	<string>https://c2.staticflickr.com/8/7451/12633853835_ab9aeab262.jpg</string>
+	<string>http://farm8.staticflickr.com/7346/12648134005_608bbe57bb_o_d.jpg</string>
+	<string>http://farm8.staticflickr.com/7388/12640328794_2f0202d512_o_d.jpg</string>
+	<string>http://farm8.staticflickr.com/7317/12647311743_d5b891751c_o_d.jpg</string>
+	<string>http://farm8.staticflickr.com/7418/12644028474_a2cc34d0d0_o_d.jpg</string>
 </array>
 </plist>
