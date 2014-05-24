@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DFD50741927AF2B0021B680 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DFD50731927AF2B0021B680 /* CoreImage.framework */; };
 		8C75848118B6DAB9003B3299 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C75848018B6DAB9003B3299 /* Foundation.framework */; };
 		8C75848318B6DAB9003B3299 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C75848218B6DAB9003B3299 /* CoreGraphics.framework */; };
 		8C75848518B6DAB9003B3299 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C75848418B6DAB9003B3299 /* UIKit.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DFD50731927AF2B0021B680 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		8C75847D18B6DAB9003B3299 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C75848018B6DAB9003B3299 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8C75848218B6DAB9003B3299 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DFD50741927AF2B0021B680 /* CoreImage.framework in Frameworks */,
 				8C75848318B6DAB9003B3299 /* CoreGraphics.framework in Frameworks */,
 				8C75848518B6DAB9003B3299 /* UIKit.framework in Frameworks */,
 				8C75848118B6DAB9003B3299 /* Foundation.framework in Frameworks */,
@@ -109,6 +112,7 @@
 		8C75847F18B6DAB9003B3299 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DFD50731927AF2B0021B680 /* CoreImage.framework */,
 				8C75848018B6DAB9003B3299 /* Foundation.framework */,
 				8C75848218B6DAB9003B3299 /* CoreGraphics.framework */,
 				8C75848418B6DAB9003B3299 /* UIKit.framework */,
@@ -477,6 +481,7 @@
 				8C7584B118B6DAB9003B3299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C7584B218B6DAB9003B3299 /* Build configuration list for PBXNativeTarget "PhotosTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +490,7 @@
 				8C7584B418B6DAB9003B3299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

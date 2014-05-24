@@ -7,6 +7,7 @@
 //
 
 @import Dispatch;
+@import CoreImage;
 
 #import "PhotosViewController.h"
 #import "PhotosCell.h"
@@ -19,6 +20,9 @@
 @property (strong, nonatomic) NSArray *plist;
 @property (strong, nonatomic) NSMutableArray *photos;
 @property (strong, nonatomic) dispatch_queue_t queue;
+
+@property (strong, nonatomic) CIContext *context;
+@property (strong, nonatomic) CIFilter *filter;
 
 @end
 
@@ -57,23 +61,47 @@
     return _queue;
 }
 
+- (CIContext *)context
+{
+    if (!_context) _context = [CIContext contextWithOptions:nil];
+    return _context;
+}
+
+- (CIFilter *)filter
+{
+    if (!_filter) _filter = [CIFilter filterWithName:@"CISepiaTone"];
+    return _filter;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    NSLog(@"%@", [CIFilter filterNamesInCategory:kCICategoryStillImage]);
+    
     [self.plist enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
     {
-        Photo *photo = [[Photo alloc] initWithName:[NSString stringWithFormat:@"FOTO %d", idx + 1] summary:nil url:[NSURL URLWithString:obj] andIDNumber:[NSNumber numberWithUnsignedInteger:idx]];
+        Photo *photo = [[Photo alloc] initWithName:[NSString stringWithFormat:@"FOTO %lu", idx + 1] summary:nil url:[NSURL URLWithString:obj] andIDNumber:[NSNumber numberWithUnsignedInteger:idx]];
         dispatch_async(self.queue, ^
         {
-            UIImage *image = [photo imageFromServer];
+            CIImage *image = [CIImage imageWithCGImage:[[photo imageFromServer] CGImage]];
             
-            NSLog(@"Image %@", image);
+            [self.filter setValue:@1.0f  forKey:kCIInputIntensityKey];
+            [self.filter setValue:image forKey:kCIInputImageKey];
             
-            if (image)
+            CIImage *output = [self.filter valueForKey:kCIOutputImageKey];
+            
+            CGImageRef render = [self.context createCGImage:output fromRect:[output extent]];
+            
+            UIImage *renderedOutput = [UIImage imageWithCGImage:render];
+            
+            CFRelease(render);
+            
+            NSLog(@"Image %@", renderedOutput);
+            
+            if (renderedOutput)
             {
-                [self.photos addObject:image];
+                [self.photos addObject:renderedOutput];
             }
             
             dispatch_async(dispatch_get_main_queue(), ^
