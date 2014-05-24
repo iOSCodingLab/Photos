@@ -53,7 +53,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Photos" id="cLl-vH-lI0"/>
+                    <navigationItem key="navigationItem" title="Photos" id="cLl-vH-lI0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7mG-2w-ScW">
+                            <color key="tintColor" red="0.0" green="0.42082002737226276" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="showAlert:" destination="vXZ-lx-hvc" id="qQO-Rc-lSq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="03c-Nx-kz3" id="8mq-jj-eZ9"/>
                     </connections>

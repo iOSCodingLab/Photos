@@ -26,17 +26,32 @@
 }
 
 
-- (UIImage *)imageFromServer
++ (UIImage *)imageFromServer:(NSURL *)url
 {
-    NSLog(@"Download started");
+    //Carpeta de library
+    NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+    //Carpeta de caches
+    NSString *cachesPath = [libraryPath stringByAppendingPathComponent:@"Caches"];
+    //Path de la imagen
+    NSString *path = [cachesPath stringByAppendingPathComponent:[url lastPathComponent]];
     
-    NSData *data = [[NSData alloc] initWithContentsOfURL:self.url];
+    UIImage *image = nil;
     
-    NSLog(@"Data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    
-    UIImage *image = [[UIImage alloc] initWithData:data];
-    
-    NSLog(@"Image: %@", image);
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path])
+    {
+        image = [UIImage imageWithContentsOfFile:path];
+    }
+    else
+    {
+        NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+        
+        if (data)
+        {
+            [data writeToFile:path atomically:YES];
+            image = [[UIImage alloc] initWithData:data];
+        }
+
+    }
     
     return image;
 }

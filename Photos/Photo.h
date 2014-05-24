@@ -16,7 +16,7 @@
 @property (strong) NSString *summary;
 @property (strong) NSURL *url;
 
-- (UIImage *)imageFromServer;
++ (UIImage *)imageFromServer:(NSURL *)url;
 
 - (instancetype)initWithName:(NSString *)name summary:(NSString *)summary url:(NSURL *)url andIDNumber:(NSNumber *)idNumber;
 
